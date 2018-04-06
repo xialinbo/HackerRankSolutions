@@ -4,41 +4,41 @@ namespace Solution.Solutions
 {
     public class DistinctPairs
     {
-        public int NumberOfPairs(int[] a, long k)
+        public int NumberOfPairs(int[] numbers, long sum)
         {
-            Array.Sort(a);
-            var b = new long[a.Length];
-            for (int i = 0; i < b.Length; i++)
+            Array.Sort(numbers);
+            var complement = new long[numbers.Length];
+            for (int i = 0; i < complement.Length; i++)
             {
-                b[i] = k - a[i];
+                complement[i] = sum - numbers[i];
             }
 
-            var aPointer = 0;
-            var bPointer = b.Length - 1;
+            var numberPointer = 0;
+            var complementPointer = complement.Length - 1;
             var count = 0;
 
-            while (aPointer < bPointer)
+            while (numberPointer < complementPointer)
             {
-                if (a[aPointer] == b[bPointer])
+                if (numbers[numberPointer] == complement[complementPointer])
                 {
                     count++;
                 }
 
-                if (a[aPointer] >= b[bPointer])
+                if (numbers[numberPointer] >= complement[complementPointer])
                 {
                     do
                     {
-                        bPointer--;
+                        complementPointer--;
                     }
-                    while (b[bPointer] == b[bPointer + 1]);
+                    while (complement[complementPointer] == complement[complementPointer + 1]);
                 }
-                else if (a[aPointer] <= b[bPointer])
+                else if (numbers[numberPointer] <= complement[complementPointer])
                 {
                     do
                     {
-                        aPointer++;
+                        numberPointer++;
                     }
-                    while (a[aPointer] == a[aPointer - 1]);
+                    while (numbers[numberPointer] == numbers[numberPointer - 1]);
                 }
             }
 

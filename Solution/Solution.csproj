@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Solutions\DistinctPairs.cs" />
+    <Compile Include="Solutions\MaximumDifferenceInArray.cs" />
     <Compile Include="Solutions\SprintTraining.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
