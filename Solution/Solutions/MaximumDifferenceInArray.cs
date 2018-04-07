@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Solution.Solutions
@@ -8,31 +7,16 @@ namespace Solution.Solutions
     {
         public int GetMaxDifference(int[] numbers)
         {
-            var count = numbers.Length;
-            var minNumberArray = new int[count];
-            var maxNumberArray = new int[count];
+            var minNumber = numbers[0];
+            var maxDiff = -1;
 
-            minNumberArray[0] = numbers[0];
-            for (int i = 1; i < count; i++)
+            foreach(var i in Enumerable.Range(1, numbers.Count() - 1))
             {
-                minNumberArray[i] = Math.Min(numbers[i], minNumberArray[i - 1]);
+                minNumber = Math.Min(minNumber, numbers[i]);
+                maxDiff = Math.Max(maxDiff, numbers[i] - minNumber);
             }
 
-            maxNumberArray[count - 1] = numbers[count - 1];
-            for (int i = count - 2; i >= 0; i--)
-            {
-                maxNumberArray[i] = Math.Max(numbers[i], maxNumberArray[i + 1]);
-            }
-
-            var differences = new List<int>();
-            for (int i = 0; i < count; i++)
-            {
-                differences.Add(maxNumberArray[i]-minNumberArray[i]);
-            }
-
-            var result = differences.Max();
-
-            return result > 0 ? result : -1;
+            return maxDiff > 0 ? maxDiff : -1;
         }
     }
 }
