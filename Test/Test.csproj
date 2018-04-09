@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\DistinctPairsTest.cs" />
+    <Compile Include="Tests\MatrixPathTest.cs" />
     <Compile Include="Tests\MaximumDifferenceInArrayTest.cs" />
     <Compile Include="Tests\SprintTrainingTest.cs" />
   </ItemGroup>
